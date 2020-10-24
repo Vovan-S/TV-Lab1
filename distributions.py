@@ -48,6 +48,10 @@ class AbstractDistribution:
     def interval(self)->Tuple[float, float]:
         return (0, 0)
 
+    # является ли распределние дискретным
+    def discrete(self):
+        return False
+
 
 # Нормальное распределние
 # параметры:
@@ -197,6 +201,9 @@ class Poisson(AbstractDistribution):
     def interval(self):
         return (0, self.parameters[MU]*3)
 
+    def discrete(self):
+        return True
+
 
 # Равномерное распределение
 # Параметры:
@@ -222,6 +229,8 @@ class Uniform(AbstractDistribution):
             return (x - a) / (b - a)
 
     def x(self)->float:
+        a = self.parameters[A]
+        b = self.parameters[B]        
         return a + (b - a)*r()
 
     def interval(self):
