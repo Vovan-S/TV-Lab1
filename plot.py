@@ -4,7 +4,7 @@ from histogram import Histogram
 import distributions as dst
 
 graph_disc = 200
-ns = [10, 50, 1000]
+ns = [10, 100, 1000]
 ds = [dst.Normal("Normal distribution", {'mu': 0, 's': 1}),
       dst.Cauchy("Cauchy distribution", {'mu': 0, 'lambda': 1}),
       dst.Laplas("Laplas distribution", {'mu': 0, 'lambda': 2**(-0.5)}),
@@ -18,7 +18,6 @@ for d in ds:
         x = np.linspace(min(data), max(data), graph_disc)
         yf = [d.f(k) for k in x]
         yF = [d.F(k) for k in x]
-        # plt.figure(figsize=(4, 3))
         plt.subplot(2, len(ns), ns.index(n) + 1)
         plt.title(d.name + ", n = " + str(n))
         plt.xlabel('x')
@@ -32,7 +31,4 @@ for d in ds:
         plt.plot(x, yF, label='theoretic')
         plt.step(hs.x, hs.F(), label='got')
         plt.legend()
-    # plt.figure(figsize=(12, 7))
     plt.show()
-    # break
-
