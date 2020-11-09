@@ -29,6 +29,7 @@ for d in ds:
             for v in s:
                 if v < x1 or v > x2:
                     x += 1
+            x /= ns[i]
             sp[i][0] += x/N
             sp[i][1] += x*x/N
     for i in range(len(ns)):
