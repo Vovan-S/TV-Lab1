@@ -5,11 +5,7 @@ import distributions as dst
 
 graph_disc = 200
 ns = [10, 100, 1000]
-ds = [dst.Normal("Нормальное распределение", {'mu': 0, 's': 1}),
-      dst.Cauchy("Распределение Коши", {'mu': 0, 'lambda': 1}),
-      dst.Laplace("Распределение Лапласа", {'mu': 0, 'lambda': 2**(-0.5)}),
-      dst.Poisson("Распределение Пуассона", {'mu': 10}),
-      dst.Uniform("Равномерное распределение", {'a': -3**0.5, 'b': 3**0.5})]
+ds = dst.get_distributions()
 
 for d in ds:
     for n in ns:

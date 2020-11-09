@@ -16,6 +16,19 @@ A = 'a'
 B = 'b'
 
 
+def get_distributions():
+    ds = [Normal("Нормальное распределение", {'mu': 0, 's': 1}),
+      Cauchy("Распределение Коши", {'mu': 0, 'lambda': 1}),
+      Laplace("Распределение Лапласа", {'mu': 0, 'lambda': 2**(-0.5)}),
+      Poisson("Распределение Пуассона", {'mu': 10}),
+      Uniform("Равномерное распределение", {'a': -3**0.5, 'b': 3**0.5})]
+    return ds
+
+
+def selection(dist, n: int):
+    return sorted([dist.x() for i in range(n)])
+
+
 # стандартная случайная величина (0, 1)
 def r()->float:
     return randrange(1, 1000) / 1000

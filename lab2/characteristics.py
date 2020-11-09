@@ -1,6 +1,6 @@
 import sys
 sys.path.append('../lab1')
-from distributions import Normal, Cauchy, Laplace, Poisson, Uniform
+from distributions import get_distributions
 from math import sqrt
 
 
@@ -51,11 +51,7 @@ def char(sel: list, ch_type: str):
 
 N = 1000
 ns = [10, 100, 1000]
-ds = [Normal("Нормальное распределение", {'mu': 0, 's': 1}),
-      Cauchy("Распределение Коши", {'mu': 0, 'lambda': 1}),
-      Laplace("Распределение Лапласа", {'mu': 0, 'lambda': 2**(-0.5)}),
-      Poisson("Распределение Пуассона", {'mu': 10}),
-      Uniform("Равномерное распределение", {'a': -3**0.5, 'b': 3**0.5})]
+ds = get_distributions()
 chars = ['avr', 'med', 'zr', 'zq', 'ztr']
 for d in ds:
     print(d.name)
