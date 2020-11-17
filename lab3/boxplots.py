@@ -12,6 +12,7 @@ ns = [20, 100]
 for d in ds:
     plt.boxplot([dst.selection(d, n) for n in ns],
                 vert=False,
-                labels=ns)
+                labels=list(map(lambda n: f'n = {n}', ns)))
+    plt.xlabel('x')
     plt.title(d.name)
     plt.show()
