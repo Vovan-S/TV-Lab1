@@ -36,6 +36,7 @@ for y, name in zip([y1, y2], ['Изначальная выборка',
     plt.xlabel('x')
     plt.ylabel('y')
     plt.title(name)
+    print(lsm, lam)
     plt.show()
 
 
