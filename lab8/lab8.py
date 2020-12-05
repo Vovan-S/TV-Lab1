@@ -21,7 +21,7 @@ for sel in [norm.rvs(size=20), norm.rvs(size=100)]:
     dx = s * cu *(n**(-0.5))
     m4 = np.mean((sel - xm)**4)
     e = m4/(s**4) - 3
-    U = 0.5*cu*np.sqrt((e+2)/n)
+    U = cu*np.sqrt((e+2)/n)
     print(f'u(1-a/2) = {cu}, m4 = {m4}\ne = {e}, U = {U}')
     print(f'm in ({xm-dx}; {xm+dx})')
-    print(f's in ({s*(1-U)}; {s*(1+U)})')
+    print(f's in ({s*(1+U)**(-0.5)}; {s*(1-U)**(-0.5)})')
